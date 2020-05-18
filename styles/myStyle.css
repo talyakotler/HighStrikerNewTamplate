@@ -23,6 +23,7 @@ body {
     background-color: #D3F3EE;
     font-family: "Rubik", sans-serif;
     margin: 0;
+    overflow-y: hidden;
 }
 
 /*#container {
