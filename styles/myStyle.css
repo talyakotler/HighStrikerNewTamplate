@@ -1,0 +1,271 @@
+﻿/*:root {
+    --browserHeight: calc(100%-40px);
+}*/
+
+/*#animation_container {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    top: -20px;
+    transform: scale(calc(var(--browserHeight)/100vh));
+}*/
+
+/*body {
+    height: 100vh;
+}*/
+
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+body {
+    background-color: #D3F3EE;
+    font-family: "Rubik", sans-serif;
+    margin: 0;
+}
+
+/*#container {
+    background-color: #D3F3EE;
+    font-family: "Rubik", sans-serif;
+}*/
+
+/*iframe {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}*/
+
+/*#gameArea {
+    overflow: hidden;
+    position: relative;
+    height: 88vh;
+    width: 98vw;
+    margin: 0 auto;
+}*/
+
+/*.gameBg {
+    position: absolute;
+    z-index: 0;
+    height: 91vh;
+    width: 78vw;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-radius: 0 0 30px 30px;
+}*/
+
+.hide {
+    display: none;
+}
+
+header {
+    background-color: white;
+    width: 100%;
+    height: 40px;
+    position: relative;
+    direction: rtl;
+    display: block;
+    direction: rtl;
+    z-index: 3;
+    box-shadow: 0 0 12px rgba(0,0,0,0.05);
+    -webkit-box-shadow: 0 0 12px rgba(0,0,0,0.05);
+}
+
+    header a {
+        text-decoration: none;
+    }
+
+    /*כותרת משחק*/
+    header > a > p {
+        font-family: 'Rubik', sans-serif;
+        font-size: 12pt;
+        position: relative;
+        top: -13px;
+        color: #4d4d4d;
+        display: inline-block;
+        direction: rtl;
+    }
+
+/*לוגו*/
+#logo {
+    width: 35px;
+    height: 35px;
+    padding: 5px 50px 0 5px;
+    direction: rtl;
+}
+
+nav {
+    margin-top: -70px;
+    margin-left: 10px;
+    direction: rtl;
+}
+
+    nav ul {
+        list-style: none;
+        direction: rtl;
+    }
+
+        nav ul li {
+            display: inline-block;
+            float: left;
+            direction: rtl;
+        }
+
+            nav ul li a {
+                display: block;
+                color: #4d4d4d;
+                text-align: center;
+                padding: 5px 10px;
+                font-weight: 400;
+                font-size: 12pt;
+                font-family: 'Rubik', sans-serif;
+                direction: rtl;
+                text-decoration: none;
+            }
+
+            nav ul li:first-child {
+                padding-left: 40px;
+                padding-right: 10px;
+                border-right: 1px solid #f4f4f4;
+            }
+
+            nav ul li:last-child {
+                padding-left: 10px;
+            }
+
+            nav ul li a:hover {
+                font-weight: 600;
+                cursor: pointer;
+                font-family: 'Rubik', sans-serif;
+                direction: rtl;
+                text-decoration: none;
+            }
+
+
+.popUp {
+    background-color: white;
+    position: fixed;
+    top: 60px;
+    z-index: 4;
+    text-align: left;
+    border-radius: 25px;
+    padding: 10px;
+    padding-bottom: 25px;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    direction: rtl;
+    height: 75vh;
+    width: 65vw;
+}
+
+
+.close {
+    width: 35px;
+    height: auto;
+    cursor: pointer;
+    text-align: right;
+}
+
+.popUp .gameHeadline {
+    display: block;
+    width: 250px;
+    height: auto;
+    margin: -20px auto 0 auto;
+}
+
+.popUp div {
+    text-align: center;
+    width: 65vw;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+    .popUp div.info p {
+        margin: 15px;
+    }
+
+.hitLogo {
+    width: 120px;
+    margin-right: 55px;
+}
+
+.info-logo {
+    margin-top: 30px;
+}
+
+.popUp div.info .info-logo p {
+    display: block;
+    margin: 0;
+}
+
+.popUp div.info .info-logo div {
+    display: inline-block;
+    width: 300px;
+    position: relative;
+    top: -15px;
+    text-align: right;
+    margin-right: 30px;
+    font-size: 18px;
+}
+
+#howToPlayDiv img.howtoplayImg {
+    width: 620px;
+    display: block;
+    margin: -32px auto 0 auto;
+}
+
+#canvas #mycb.ui-combobox {
+    direction: rtl;
+    font-family: Rubik;
+    font-size: 16px;
+}
+
+#toggleBg {
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    z-index: 3;
+    height: 100vh;
+    width: 100vw;
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+#animation_container #dom_overlay_container #codeInput.ui-textinput {
+    width: 500px !important;
+}
+

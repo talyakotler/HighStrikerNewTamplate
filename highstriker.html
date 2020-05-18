@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="authoring-tool" content="Adobe_Animate_CC">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>High Striker</title>
+    <meta name="description" content="high striker" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Shir Einav Talya Kotler" />
+    <link rel="icon" href="images2/favicon.png">
+    <!-- write your code here -->
+    <style>
+  #animation_container {
+	position:absolute;
+	margin:auto;
+	left:0;right:0;
+	top:0;bottom:0;
+  }
+</style>
+<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+<script src="highstriker.js?1589829556614"></script>
+    <script>
+    var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+    function init() {
+    canvas = document.getElementById("canvas");
+    anim_container = document.getElementById("animation_container");
+    dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("D6121081ADF0354D90C6E124D57038E7");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+    }
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
+}
+function handleComplete(evt,comp) {
+    //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.highstriker();
+	stage = new lib.Stage(canvas);
+    //Registers the "tick" event listener.
+    fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.setFPS(lib.properties.fps);
+		createjs.Ticker.addEventListener("tick", stage);
+	}
+    //Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(true,'both',true,1,[canvas,anim_container,dom_overlay_container]);
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+    </script>
+    <!-- write your code here -->
+    <!-- CSS -->
+    <link href="styles/myStyle.css" rel="stylesheet" />
+    <!-- Scripts -->
+    <!--jQuery library-->
+    <script src="jScripts/jquery-1.12.0.min.js"></script>
+    <!--הקוד שמפעיל את תפריט הניווט-->
+    <script src="jScripts/myScript.js"></script>
+    <script src="jScripts/JavaScript.js"></script>
+</head>
+<body onload="init(); resize();" style="margin:0px;">
+    <div id="toggleBg" class="hide fadeIn"></div>
+    <header>
+        <!--קישור לדף עצמו כדי להתחיל את המשחק מחדש בלחיצה על הלוגו-->
+        <a href="animateTemplate.html">
+            <img id="logo" src="images2/logo.png" /> <!--הלוגו של המשחק שלכם-->
+            <p>High Striker</p>
+        </a>
+        <!--תפריט הניווט בראש העמוד-->
+        <nav>
+            <ul>
+                <li><a class="about">אודות</a></li>
+                <li><a class="howToPlay">איך משחקים?</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="aboutDiv" class="popUp bounceInDown hide">
+        <a class="closeAbout">
+            <img class="close" src="images2/close.png" />
+        </a>
+        <div class="info">
+            <img class="gameHeadline" src="images2/gameName.png" />
+            <p>
+                <span>אפיון ופיתוח:</span>
+                שיר עינב וטליה קוטלר
+            </p>
+            <p>
+                אופיין ופותח במסגרת פרויקט בקורסים: <br />
+                סביבות לימוד אינטראקטיביות 1 + סביבות אינטראקטיביות 1, תש"פ
+            </p>
+            <div class="info-logo">
+                <img class="hitLogo" src="images2/hit-logo.png" />
+                <div>
+                    <a href="https://www.hit.ac.il/telem/overview" target="_blank">הפקולטה לטכנולוגיות למידה</a>
+                    <p>מכון טכנולוגי חולון</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="howToPlayDiv" class="popUp bounceInDown hide">
+        <a class="closeHowToPlay">
+            <img class="close" src="images2/close.png" />
+        </a>
+        <img src="images2/howtoplay.png" class="howtoplayImg" alt="הוראות תפעול למשחק: תזוזה ימינה ושמאלה באמצעת חצי המקלדת, סימון ובחירת תשובה באמצעות מקש רווח." />
+    </div>
+    <div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:1280px; height:720px; position:absolute;">
+        <canvas id="canvas" width="1280" height="720" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+        <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1280px; height:720px; position: absolute; left: 0px; top: 0px; display: block;">
+        </div>
+    </div>
+</body>
+</html>

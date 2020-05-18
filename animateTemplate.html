@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="authoring-tool" content="$VERSION">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>High Striker</title>
+    <meta name="description" content="high striker" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Shir Einav Talya Kotler" />
+
+    <link rel="icon" href="images2/favicon.png">
+    <!-- write your code here -->
+    $CENTER_STYLE
+    $CREATEJS_LIBRARY_SCRIPTS
+    $ANIMATE_CC_SCRIPTS
+    $SCRIPT_START
+    var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+    function init() {
+    canvas = document.getElementById("$CANVAS_ID");
+    anim_container = document.getElementById("$ANIM_CONTAINER_ID");
+    dom_overlay_container = document.getElementById("dom_overlay_container");
+    $CREATE_LOADER
+    $LOAD_MANIFEST
+    $PRELOAD_ASSETS
+
+    }
+    $HANDLE_FILE_LOAD_START
+    $HANDLE_FILE_LOAD_BODY
+    $HANDLE_FILE_LOAD_END
+    $HANDLE_COMPLETE_START
+    //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+    $CREATE_STAGE
+    //Registers the "tick" event listener.
+    $START_ANIMATION
+    //Code to support hidpi screens and responsive scaling.
+    $RESP_HIDPI
+    $HANDLE_COMPLETE_END
+    $PLAYSOUND
+    $SCRIPT_END
+
+    <!-- write your code here -->
+    <!-- CSS -->
+    <link href="styles/myStyle.css" rel="stylesheet" />
+    <!-- Scripts -->
+    <!--jQuery library-->
+    <script src="jScripts/jquery-1.12.0.min.js"></script>
+    <!--הקוד שמפעיל את תפריט הניווט-->
+    <script src="jScripts/myScript.js"></script>
+    <script src="jScripts/JavaScript.js"></script>
+</head>
+<body onload="init(); resize();" style="margin:0px;">
+    <div id="toggleBg" class="hide fadeIn"></div>
+    <header>
+        <!--קישור לדף עצמו כדי להתחיל את המשחק מחדש בלחיצה על הלוגו-->
+        <a href="animateTemplate.html">
+            <img id="logo" src="images2/logo.png" /> <!--הלוגו של המשחק שלכם-->
+            <p>High Striker</p>
+        </a>
+        <!--תפריט הניווט בראש העמוד-->
+        <nav>
+            <ul>
+                <li><a class="about">אודות</a></li>
+                <li><a class="howToPlay">איך משחקים?</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="aboutDiv" class="popUp bounceInDown hide">
+        <a class="closeAbout">
+            <img class="close" src="images2/close.png" />
+        </a>
+        <div class="info">
+            <img class="gameHeadline" src="images2/gameName.png" />
+            <p>
+                <span>אפיון ופיתוח:</span>
+                שיר עינב וטליה קוטלר
+            </p>
+            <p>
+                אופיין ופותח במסגרת פרויקט בקורסים: <br />
+                סביבות לימוד אינטראקטיביות 1 + סביבות אינטראקטיביות 1, תש"פ
+
+            </p>
+            <div class="info-logo">
+                <img class="hitLogo" src="images2/hit-logo.png" />
+                <div>
+                    <a href="https://www.hit.ac.il/telem/overview" target="_blank">הפקולטה לטכנולוגיות למידה</a>
+                    <p>מכון טכנולוגי חולון</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="howToPlayDiv" class="popUp bounceInDown hide">
+        <a class="closeHowToPlay">
+            <img class="close" src="images2/close.png" />
+        </a>
+        <img src="images2/howtoplay.png" class="howtoplayImg" alt="הוראות תפעול למשחק: תזוזה ימינה ושמאלה באמצעת חצי המקלדת, סימון ובחירת תשובה באמצעות מקש רווח." />
+    </div>
+    <div id="$ANIM_CONTAINER_ID" style="background-color:$BG; width:$WTpx; height:$HTpx; position:absolute;">
+        <canvas id="$CANVAS_ID" width="$WT" height="$HT" style="position: absolute; display: $CANVAS_DISP; background-color:$BG;"></canvas>
+
+        <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:$WTpx; height:$HTpx; position: absolute; left: 0px; top: 0px; display: $CANVAS_DISP;">
+        </div>
+    </div>
+    $PRELOADER_DIV
+</body>
+</html>
