@@ -1,7 +1,7 @@
 ﻿var gameHeight;
 var gameWidth;
-var viewportHeight = $(window).height();
-var viewportWidth = $(window).width();
+var viewportHeight = $(window).innerHeight();
+var viewportWidth = $(window).innerWidth();
 
 $(window).load(function () {
     gameHeight = $("#animation_container").height();
@@ -16,6 +16,7 @@ function resize() {
     console.log(gameWidth);
     console.log(viewportWidth);
     console.log(viewportHeight);
+
 }
 
 
